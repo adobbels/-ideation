@@ -34,7 +34,7 @@ class ProfilesController < ApplicationController
       flash[:notice] = 'Profile was successfully updated.'
       redirect_to profile_path(@profile)
     else
-      flash[:notice] = 'Error.  Something went wrong.'
+      flash[:notice] = 'Error. Something went wrong.'
       render :edit
     end
   end
