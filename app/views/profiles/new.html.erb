@@ -1,1 +1,43 @@
-<%= render "form", profile: @profile %>
+    <section class="main-block">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="listing-wrap">
+
+                            <!-- General Information -->
+                            <div class="listing-title">
+                                <h4>Please tell us more about you 🤗</h4>
+                                <p>Please complete your account</p>
+                            </div>
+
+                        <%= simple_form_for @profile do |f| %>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= f.input :first_name , class: "form-control", placeholder: "John" %>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= f.input :last_name , class: "form-control", placeholder: "Doe" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btn-wrap btn-wrap2">
+                                        <%= f.button :submit, "Create my profile", class: "btn btn-simple"%>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% end %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

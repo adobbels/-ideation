@@ -1,0 +1,117 @@
+<%= @profile %>
+
+    <!--============================= SUBPAGE HEADER BG =============================-->
+    <section class="subpage-bg">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="titile-block title-block_subpage">
+                        <h2>Your Personal Dashboard</h2>
+                        <p> <a href="/"> Home</a> / Profile </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// SUBPAGE HEADER BG -->
+    <!--============================= BOOKING DETAILS =============================-->
+    <section class="gray-dark booking-details_wrap">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-8 responsive-wrap">
+
+
+
+                    <div class="row">
+                        <div class="col-md-6 card-2">
+                            <!-- card-1 -->
+                            <div class="card">
+                                <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-3.jpg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Dine &amp; Wine</h5>
+                                    <ul class="card-rating">
+                                        <li>5.0</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li>3 ratings</li>
+                                    </ul>
+                                    <p class="card-text"> <%= truncate("The selections are amazing buffalo Mac and cheese 10/10. The sausage gravy biscuit with chicken 9/10.", length: 100)%> </p>
+                                </div>
+                                <div class="card-bottom">
+                                    <p><i></i>AUTHOR</p>
+                                    <span>business line</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card-2">
+                            <div class="card">
+                                <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-4.jpg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Thai Villa</h5>
+                                    <ul class="card-rating">
+                                        <li>4.0</li>
+                                        <li>3 ratings</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li>$$$$</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li>Asian</li>
+                                    </ul>
+                                    <p class="card-text">There are non spicy options but not particularly a kids menu. I don't think anything they have is bland aside from if you consider rice. </p>
+                                </div>
+                                <div class="card-bottom">
+                                    <p><i></i>SANFRANCISCO</p>
+                                    <span class="open-close_green">Open Now</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card-2">
+                            <div class="card">
+                                <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-5.jpg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Burger &amp; Lobster</h5>
+                                    <ul class="card-rating">
+                                        <li class="card-rating-yellow">3.5</li>
+                                        <li>3 ratings</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li>$$$$</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li>Music</li>
+                                    </ul>
+                                    <p class="card-text">Calamari was excellent. Not under cooked or over cooked. The 3 sauces that come with the dish had a little kick (spice). </p>
+                                </div>
+                                <div class="card-bottom">
+                                    <p><i></i>SANFRANCISCO</p>
+                                    <span class="open-close_green">Open Now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 responsive-wrap">
+                    <div class="follow" style="margin-bottom: 15px; padding-bottom: 1px;">
+                        <div class="follow-img">
+                            <img src="/assets/follow-img.jpg" class="img-fluid" alt="#">
+                            <h6><%= @profile.first_name %> <%= @profile.last_name %> </h6>
+                            <span><%= @profile.user.email %></span>
+                        </div>
+                        <ul class="d-flex">
+                            <li class=" flex-fill">
+                                <h6>76</h6>
+                                <span>ideas</span>
+                            </li>
+                            <li class=" flex-fill">
+                                <h6>42</h6>
+                                <span>reviews</span>
+                            </li>
+                        </ul>
+                        <p><%= link_to 'EDIT MY PROFILE', edit_profile_path(@profile), class: 'btn btn-outline-danger btn-contact'%></p>
+                        <p><%= link_to 'SEND A MESSAGE', edit_profile_path(@profile), class: 'btn btn-outline-danger btn-contact'%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END BOOKING DETAILS -->
