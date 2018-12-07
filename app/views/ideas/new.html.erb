@@ -1,0 +1,136 @@
+    <!--============================= SUBPAGE HEADER BG =============================-->
+    <section class="subpage-bg">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="titile-block title-block_subpage">
+                        <h2>Share an idea 💡</h2>
+                        <p> <a href="index.html"> Home</a> / New idea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// SUBPAGE HEADER BG -->
+    <!--============================= ADD LISTING =============================-->
+    <section class="main-block">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="listing-wrap">
+                        <!-- <form action="#"> -->
+                            <!-- General Information -->
+                            <div class="listing-title">
+                                <span class="ti-files"></span>
+                                <h4>General Information</h4>
+                                <p>Write Something General Information About Your Listing</p>
+                            </div>
+
+<%= simple_form_for @idea do |f| %>
+
+<!--                             <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Business Line 🏢</label>
+                                        <select class="form-control add-listing_form">
+                                          <option>Retail Banking</option>
+                                          <option>Private Banking</option>
+                                          <option>Compliance</option>
+                                          <option>legal</option>
+                                          <option>Finance</option>
+                                          <option>Market</option>
+                                          <option>Product</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :title , label: 'Title', class: "form-control add-listing_form ",  placeholder: "This will be the first line people will see." %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :business_case , as: :text, label: 'Business Case 👔', class: "form-control add-listing_form ",  placeholder: "A justification for the proposed project on the basis of its expected commercial benefit." %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//End General Information -->
+                            <!-- Detailed Information -->
+                            <div class="listing-title">
+                                <span class="ti-files"></span>
+                                <h4>Pitch Your Idea 🎙️</h4>
+                                <p>Please explain us why your idea is awesome</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :value_prop , as: :text, label: 'Value Proposition 📈', class: "form-control add-listing_form ",  placeholder: "An innovation, service, or feature intended to make a company or product attractive to customers." %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :target_market , as: :text, label: 'Targeted Markets 🎯', class: "form-control add-listing_form ",  placeholder: "A particular group of consumers at which a product or service is aimed." %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :problem , as: :text, label: 'Pain Points 🤕', class: "form-control add-listing_form ",  placeholder: "A pain point is a specific problem that prospective customers of your business are experiencing. In other words, you can think of pain points as problems, plain and simple." %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :solution , as: :text, label: 'Solution 💯', class: "form-control add-listing_form ",  placeholder: "How can you solve the problem you identified?" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :revenue , as: :text, label: 'Revenue Generation 💸', class: "form-control add-listing_form ",  placeholder: "How can you solve the problem you identified?" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//End Detailed Information -->
+                            <!-- Add Gallery -->
+<!--                             <div class="listing-title">
+                                <span class="ti-gallery"></span>
+                                <h4>Add Gallery</h4>
+                                <p>Write Something General Information About Your Listing</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="custom-file">
+                                        <div class="add-gallery-text">
+                                            <i class="ti-gallery"></i>
+                                            <span>Drag &amp; Drop To Change Logo</span>
+                                        </div>
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!--//End Add Gallery -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btn-wrap btn-wrap2">
+                                        <%= f.button :submit, "Submit my Idea", class: "btn btn-simple"%>
+                                    </div>
+                                </div>
+                            </div>
+<% end %>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END ADD LISTING -->

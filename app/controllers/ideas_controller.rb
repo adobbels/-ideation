@@ -57,7 +57,7 @@ class IdeasController < ApplicationController
 private
 
 def idea_params
-  params.require(:idea).permit(:title, :description, :business_case, :value_prop, :target_market, :problem, :solution, :revenue)
+  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue)
 end
 
 
