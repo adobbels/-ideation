@@ -33,23 +33,92 @@
 
                             </div>
                         </div>
-                        <div class="comments">
-                          <% @reviews = @idea.reviews%>
-                          <h4><%= @reviews.count %> Reviews</h4>
-                          <% if @reviews %>
-                            <% @reviews.each do |review| %>
-                              <div class="media">
-                                  <img class="mr-3" src="/assets/customer-img1.jpg" alt="#">
-                                  <div class="media-body">
 
-                                      <h6 class="mt-0 mb-0"><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %> </h6>
-                                      <p class="mb-1"><small class="text-muted"><%= review.created_at.strftime('%b %d, %Y') %> <a href="#">Reply</a></small></p>
-                                      <p><%= review.content %></p>
+
+
+<div class="booking-checkbox_wrap booking-your-review">
+                        <h5>Write a Review</h5>
+                        <hr>
+                        <div class="customer-review_wrap">
+                            <div class="customer-img">
+                                <img src="/assets/avatar.jpg" class="img-fluid" alt="#">
+                            </div>
+                            <div class="customer-content-wrap">
+                                <div class="your-rating-wrap">
+                                    <span>Your rating</span>
+                                    <div class="customer-review">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span class="round-icon-blank"></span>
+                                    </div>
+                                </div>
+                                <div class="your-comment-wrap">
+                                    <textarea name="#" class="your-rating-content" placeholder="Enter Your Comments"></textarea>
+                                    <h6 class="your-rating-notify">at least 140 characters</h6>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mr-auto">
+                                        <div class="add-photos-link mb-3 mb-md-0">
+                                            <a href="#"><i class="icon-picture"></i>Add Photos</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="your-rating-btn">
+                                            <a href="#" class="btn btn-danger btn-block">Publish Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                          <% sum = 0 %>
+                          <% avg = 0 %>
+                          <% @reviews.each do |review| %>
+                            <% sum = sum + review.rating  %>
+                            <% avg = sum / @reviews.count %>
+                          <% end  %>
+                          <% @reviews = @idea.reviews%>
+
+
+                    <div class="booking-checkbox_wrap my-4">
+                        <h4><%= @reviews.count %> Reviews <br> Average Rating <%= '%.1f' % avg %></h4>
+                        <hr>
+                        <% if @reviews %>
+                            <% @reviews.each do |review| %>
+                              <div class="customer-review_wrap">
+                                  <div class="customer-img">
+                                      <img src="/assets/customer-img1.jpg" class="img-fluid" alt="#">
+                                      <p><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %></p>
+                                      <span><%= Review.all.where(profile_id: review.profile_id).count %> Reviews</span>
+                                  </div>
+                                  <div class="customer-content-wrap">
+                                      <div class="customer-content">
+                                          <div class="customer-review">
+                                              <h5><%= review.title %></h5>
+                                              <span></span>
+                                              <span></span>
+                                              <span></span>
+                                              <span></span>
+                                              <span class="round-icon-blank"></span>
+                                              <p>Reviewed 2 days ago</p>
+                                          </div>
+                                          <div class="customer-rating"><%= '%.1f' % review.rating %></div>
+                                      </div>
+                                      <p class="customer-text"> <%= review.content %> </p>
                                   </div>
                               </div>
+                              <hr>
                             <% end  %>
-                          <% end  %>
-                        </div>
+                        <% end  %>
+                    </div>
+
+
+
+
 
 
                         <div class="comment-form">
