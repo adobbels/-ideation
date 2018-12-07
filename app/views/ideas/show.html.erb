@@ -1,0 +1,189 @@
+<% profile = Profile.find(@idea.profile_id) %>
+
+
+
+    <!--============================= BLOG DETAIL =============================-->
+    <section class="main-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 responsive-wrap">
+                    <div class="full-blog">
+                        <figure class="img-holder">
+                            <a href="#"><img src="/assets/blog-detail-img.jpg" class="img-fluid" alt="#"></a>
+                            <div class="blog-post-date">
+                                <%= @idea.created_at.strftime('%b %d, %Y') %>
+                            </div>
+                        </figure>
+                        <div class="blog-content">
+                            <p class="text-muted">By: <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%> / 4 Comments</p>
+                            <div class="blog-text">
+                                <h5> <%= @idea.title %> </h5>
+                                <h6>Business Case</h6>
+                                <p style="font-weight: 200;"><%= @idea.business_case %></p>
+                                <h6>Value Proposition</h6>
+                                <p style="font-weight: 200;"><%= @idea.value_prop %></p>
+                                <h6>Targeted Markets</h6>
+                                <p style="font-weight: 200;"><%= @idea.target_market %></p>
+                                <h6>Pain Points</h6>
+                                <p style="font-weight: 200;"><%= @idea.problem %></p>
+                                <h6>Solution</h6>
+                                <p style="font-weight: 200;"><%= @idea.solution %></p>
+                                <h6>Revenue Generation</h6>
+                                <p style="font-weight: 200;"><%= @idea.revenue %></p>
+
+                            </div>
+                        </div>
+                        <div class="comments">
+                          <% @reviews = @idea.reviews%>
+                          <h4><%= @reviews.count %> Reviews</h4>
+                          <% if @reviews %>
+                            <% @reviews.each do |review| %>
+                              <div class="media">
+                                  <img class="mr-3" src="/assets/customer-img1.jpg" alt="#">
+                                  <div class="media-body">
+
+                                      <h6 class="mt-0 mb-0"><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %> </h6>
+                                      <p class="mb-1"><small class="text-muted"><%= review.created_at.strftime('%b %d, %Y') %> <a href="#">Reply</a></small></p>
+                                      <p><%= review.content %></p>
+                                  </div>
+                              </div>
+                            <% end  %>
+                          <% end  %>
+                        </div>
+
+
+                        <div class="comment-form">
+                            <h4>Post a review</h4>
+                            <!-- <form> -->
+                            <%= simple_form_for [@idea, @review] do |f| %>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                          <%= f.input :title , label: "Title", class: "form-control comment-text", placeholder: "The best idea ever 😎" %>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                          <%= f.input :rating , label: "Rating - from 1 to 5", class: "form-control comment-text", placeholder: "5" %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                          <%= f.input :content , label: "My Review", class: "form-control comment-text", placeholder: "This is brilliant! Why haven't I ever thought about it!" %>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btn-wrap2">
+                                        <%= f.button :submit, "Submit my Idea", class: "btn-submit"%>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end  %>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 responsive-wrap">
+                    <div class="sidebar">
+                        <div class="widget-box">
+                            <h4>Latest Ideas</h4>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-1.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>Traveling alone? Remember this 5 useful tips</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Restaurants </p>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-2.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>What culture says about your country?</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Culture</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-3.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>World’s biggest hard-rock band visting Boston</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Events</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-4.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>A getaway to lonely Island of Maldives</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Travel</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="widget-box">
+                            <h4>Categories</h4>
+                            <div class="categories">
+                                <a href="#">Business <span class="ti-angle-right"></span></a>
+                                <a href="#">Shopping<span class="ti-angle-right"></span></a>
+                                <a href="#">Photography<span class="ti-angle-right"></span></a>
+                                <a href="#">Intertainment<span class="ti-angle-right"></span></a>
+                                <a href="#">Education<span class="ti-angle-right"></span></a>
+                                <a href="#">Travel & Tour<span class="ti-angle-right"></span></a>
+                                <a href="#">Health & Fitness<span class="ti-angle-right"></span></a>
+                            </div>
+                        </div>
+
+                        <div class="widget-box">
+                            <h4>Popular Articles</h4>
+
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-2.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>What culture says about your country?</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Culture</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-3.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>World’s biggest hard-rock band visting Boston</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Events</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-blog">
+                                <a href="">
+                                    <img src="/assets/blog-thumb-4.jpg" alt="#">
+                                    <div class="blog-thumb-content">
+                                        <p><strong>A getaway to lonely Island of Maldives</strong></p>
+                                        <p>By Sarah Cooper </p>
+                                        <p> Nov 26, 2018 | Travel</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END BLOG DETAIL -->

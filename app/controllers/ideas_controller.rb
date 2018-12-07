@@ -1,14 +1,16 @@
 class IdeasController < ApplicationController
 
-  def index         # GET /flats
+  def index
     @ideas = Idea.all
   end
 
-  def show          # GET /flats/:id
+  def show
     @idea = Idea.find(params[:id])
+    @reviews = @idea.reviews
+    @review = Review.new
   end
 
-  def new           # GET /flats/new
+  def new
     @idea = Idea.new
     if user_signed_in?
       if current_user.profile.present?
