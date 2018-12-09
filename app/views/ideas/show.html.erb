@@ -59,7 +59,7 @@
                                         <%= f.input :title , label: false, class: "form-control comment-text", placeholder: "Enter Your Title" %>
                                       </div>
                                       <div class="your-comment-wrap" style= "margin-top: 15px;">
-                                        <%= f.input :rating , label: false, class: "form-control comment-text", placeholder: "Enter Your Rating - from 1 to 5" %>
+                                        <%= f.input :rating , input_html: { min: '0', max: '5', step: '1' }, label: false, class: "form-control comment-text", placeholder: "Enter Your Rating - from 1 to 5" %>
                                       </div>
                                       <div class="your-comment-wrap" style= "margin-top: 15px;">
                                         <%= f.input :content , label: false, class: "your-rating-content", placeholder: "Enter Your Comments" %>
@@ -92,7 +92,7 @@
                                     <div class="customer-review_wrap">
                                         <div class="customer-img">
                                             <img src="/assets/customer-img1.jpg" class="img-fluid" alt="#">
-                                            <p><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %></p>
+                                            <p><%= link_to "#{Profile.find(review.profile_id).first_name} #{Profile.find(review.profile_id).last_name}", profile_path(Profile.find(review.profile_id)), style: "color: #3e434b; text-decoration: none"%></p>
                                             <span><%= Review.all.where(profile_id: review.profile_id).count %> Reviews</span>
                                         </div>
                                         <div class="customer-content-wrap">

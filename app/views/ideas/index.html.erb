@@ -1,1 +1,35 @@
-<p>index</p>
+    <!--============================= SUBPAGE HEADER BG =============================-->
+    <section class="subpage-bg">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="titile-block title-block_subpage">
+                        <h2>All Your Awesome Ideas</h2>
+                        <p><a href="/"> Home</a> / Blog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// SUBPAGE HEADER BG -->
+    <!--============================= BLOG 2 =============================-->
+    <section class="main-block">
+        <div class="container-fluid">
+            <div class="row blog2-block">
+                <% @ideas.each do |idea| %>
+                  <div class="col-md-6 col-lg-3 article-first">
+                      <div class="news-block">
+                          <img src="/assets/article-img1.jpg" alt="#" class="img-fluid">
+                          <div class="news-title">
+                              <p> <%= idea.created_at.strftime('%b %d, %Y') %> • Business Line</p>
+                              <h5><%= idea.title %></h5>
+                              <p class="blog2-thumbnail-name">By <%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>
+                              <p><%= link_to "Read More ➝", idea_path(idea), class:"blog2-link" %></p>
+                          </div>
+                      </div>
+                  </div>
+                <% end  %>
+            </div>
+        </div>
+    </section>
+    <!--//END BLOG -->
