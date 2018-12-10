@@ -1,4 +1,8 @@
-<% if Profile.find(params[:id]).id == current_user.profile.user_id %>
+<% if current_user.nil? == true %>
+  <% myprofile = false  %>
+<% elsif current_user.profile.nil? == true %>
+  <% myprofile = false %>
+  <% elsif Profile.find(params[:id]).id == current_user.profile.user_id %>
   <% myprofile = true %>
 <% else  %>
   <% myprofile = false  %>
@@ -7,18 +11,22 @@
 
 
     <!--============================= SUBPAGE HEADER BG =============================-->
-    <section class="subpage-bg">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="titile-block title-block_subpage">
-                        <h2>Your Personal Dashboard</h2>
+      <section class="subpage-bg">
+          <div class="container-fluid">
+              <div class="row justify-content-center">
+                  <div class="col-md-10">
+                      <div class="titile-block title-block_subpage">
+                        <% if myprofile  %>
+                            <h2>Your Personal Dashboard</h2>
+                        <% else  %>
+                            <h2><%= Profile.find(params[:id]).first_name %> Personal Dashboard</h2>
+                        <% end  %>
                         <p> <a href="/"> Home</a> / Profile </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
     <!--// SUBPAGE HEADER BG -->
     <!--============================= BOOKING DETAILS =============================-->
     <section class="gray-dark booking-details_wrap">
@@ -37,23 +45,23 @@
                             <% end  %>
                           <% end  %>
                           <div class="col-md-6 card-2">
-                              <!-- card-1 -->
-                              <div class="card">
-                                  <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-3.jpg" alt="Card image cap"></a>
-                                  <div class="card-body">
-                                      <h5><%= link_to idea.title, idea_path(idea), class: 'card-title', style: "color: #3e434b; text-decoration: none" %></h5>
-                                      <ul class="card-rating">
-                                          <li><%= avg.round(1) %></li>
-                                          <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                                          <li><%= idea.reviews.count %> ratings</li>
-                                      </ul>
-                                      <p class="card-text"> <%= truncate(idea.business_case, length: 100)%> </p>
-                                  </div>
-                                  <div class="card-bottom">
-                                      <p><i></i><%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>
-                                      <span>business line</span>
-                                  </div>
-                              </div>
+                            <!-- card-1 -->
+                            <div class="card">
+                                <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-3.jpg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5><%= link_to idea.title, idea_path(idea), class: 'card-title', style: "color: #3e434b; text-decoration: none" %></h5>
+                                    <ul class="card-rating">
+                                        <li><%= avg.round(1) %></li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li><%= idea.reviews.count %> ratings</li>
+                                    </ul>
+                                    <p class="card-text"> <%= truncate(idea.business_case, length: 100)%> </p>
+                                </div>
+                                <div class="card-bottom">
+                                    <p><i></i><%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>
+                                    <span>business line</span>
+                                </div>
+                            </div>
                           </div>
                         <% end  %>
                     </div>
@@ -64,6 +72,9 @@
                             <img src="/assets/follow-img.jpg" class="img-fluid" alt="#">
                             <h6><%= @profile.first_name %> <%= @profile.last_name %> </h6>
                             <span><%= @profile.user.email %></span>
+                            <% if @ideas == [] %>
+                              <p>No idea posted yet 😲</p>
+                            <% end  %>
                         </div>
                         <ul class="d-flex">
                             <li class=" flex-fill">

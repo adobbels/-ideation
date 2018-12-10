@@ -1,7 +1,13 @@
 class IdeasController < ApplicationController
 
+skip_before_action :authenticate_user!
+
   def index
+
+
     @ideas = Idea.all
+
+
   end
 
   def show
