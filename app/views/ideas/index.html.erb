@@ -23,7 +23,8 @@
                           <div class="news-title">
                               <p> <%= idea.created_at.strftime('%b %d, %Y') %> • Business Line</p>
                               <h5><%= idea.title %></h5>
-                              <p class="blog2-thumbnail-name">By <%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>
+                              <% full_name = Profile.find(idea.profile_id).first_name + " " + Profile.find(idea.profile_id).last_name %>
+                              <p class="blog2-thumbnail-name">By <%= link_to full_name, profile_path(Profile.find(idea.profile_id)), class: "blog2-thumbnail-name", style: "text-decoration: none" %></p>
                               <p><%= link_to "Read More ➝", idea_path(idea), class:"blog2-link" %></p>
                           </div>
                       </div>

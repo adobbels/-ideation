@@ -45,16 +45,6 @@
                               </div>
                               <%= simple_form_for [@idea, @review] do |f| %> <!-- </form> -->
                                   <div class="customer-content-wrap">
-                                      <div class="your-rating-wrap">
-                                          <span>Your rating</span>
-                                          <div class="customer-review">
-                                              <span></span>
-                                              <span></span>
-                                              <span></span>
-                                              <span></span>
-                                              <span class="round-icon-blank"></span>
-                                          </div>
-                                      </div>
                                       <div class="your-comment-wrap" style= "margin-top: 15px;">
                                         <%= f.input :title , label: false, class: "form-control comment-text", placeholder: "Enter Your Title" %>
                                       </div>

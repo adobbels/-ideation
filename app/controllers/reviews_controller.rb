@@ -27,11 +27,16 @@ class ReviewsController < ApplicationController
     @review.idea = @idea
     @review.profile = @profile
 
-    if @review.save
+    if @review.rating > 5 || @review.rating < 0
+      flash[:alert] = 'Rating must range between 0 and 5.'
       redirect_to idea_path(@idea)
     else
-        redirect_to new_profile_path
-        flash[:alert] = 'Please create a profile before posting a review.'
+      if @review.save
+        redirect_to idea_path(@idea)
+      else
+          redirect_to new_profile_path
+          flash[:alert] = 'Please create a profile before posting a review.'
+      end
     end
   end
 end

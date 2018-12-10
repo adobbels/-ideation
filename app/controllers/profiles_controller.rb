@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = current_user.profile
+    # @profile = current_user.profile
+    @profile = Profile.find(params[:id])
+    @ideas = Idea.all.where(profile_id: @profile.id)
   end
 
   def new
