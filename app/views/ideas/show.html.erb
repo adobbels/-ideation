@@ -115,96 +115,31 @@
                     <div class="sidebar">
                         <div class="widget-box">
                             <h4>Latest Ideas</h4>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-1.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>Traveling alone? Remember this 5 useful tips</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Restaurants </p>
-                                    </div>
-                                </a>
-
-                            </div>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-2.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>What culture says about your country?</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Culture</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-3.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>World’s biggest hard-rock band visting Boston</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Events</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-4.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>A getaway to lonely Island of Maldives</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Travel</p>
-                                    </div>
-                                </a>
-                            </div>
+                            <% Idea.all.last(3).each do |idea| %>
+                              <div class="latest-blog">
+                                  <a href="">
+                                      <img src="/assets/blog-thumb-1.jpg" alt="#">
+                                      <div class="blog-thumb-content">
+                                          <p><strong><%= truncate(idea.title, length: 75) %></strong></p>
+                                          <p><%= link_to "By #{Profile.find(idea.profile_id).first_name} #{Profile.find(idea.profile_id).last_name}", profile_path(Profile.find(idea.profile_id)), style: "text-decoration: none; color: #adadad"%></p>
+                                          <p> <%= idea.created_at.strftime('%b %d, %Y') %> | Business Line </p>
+                                      </div>
+                                  </a>
+                              </div>
+                            <% end  %>
                         </div>
                         <div class="widget-box">
                             <h4>Categories</h4>
                             <div class="categories">
-                                <a href="#">Business <span class="ti-angle-right"></span></a>
-                                <a href="#">Shopping<span class="ti-angle-right"></span></a>
-                                <a href="#">Photography<span class="ti-angle-right"></span></a>
-                                <a href="#">Intertainment<span class="ti-angle-right"></span></a>
-                                <a href="#">Education<span class="ti-angle-right"></span></a>
-                                <a href="#">Travel & Tour<span class="ti-angle-right"></span></a>
-                                <a href="#">Health & Fitness<span class="ti-angle-right"></span></a>
+                                <a href="#">Retail Banking<span class="ti-angle-right"></span></a>
+                                <a href="#">Private Banking<span class="ti-angle-right"></span></a>
+                                <a href="#">Compliance<span class="ti-angle-right"></span></a>
+                                <a href="#">Legal<span class="ti-angle-right"></span></a>
+                                <a href="#">Finance<span class="ti-angle-right"></span></a>
+                                <a href="#">Market<span class="ti-angle-right"></span></a>
+                                <a href="#">Product<span class="ti-angle-right"></span></a>
                             </div>
                         </div>
-
-                        <div class="widget-box">
-                            <h4>Popular Articles</h4>
-
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-2.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>What culture says about your country?</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Culture</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-3.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>World’s biggest hard-rock band visting Boston</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Events</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-blog">
-                                <a href="">
-                                    <img src="/assets/blog-thumb-4.jpg" alt="#">
-                                    <div class="blog-thumb-content">
-                                        <p><strong>A getaway to lonely Island of Maldives</strong></p>
-                                        <p>By Sarah Cooper </p>
-                                        <p> Nov 26, 2018 | Travel</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 <!-- ####################   sidepart   #################### -->
