@@ -21,7 +21,7 @@
                       <div class="news-block">
                           <img src="/assets/article-img1.jpg" alt="#" class="img-fluid">
                           <div class="news-title">
-                              <p> <%= idea.created_at.strftime('%b %d, %Y') %> • Business Line</p>
+                              <p> <%= idea.created_at.strftime('%b %d, %Y') %> • <%= idea.line %></p>
                               <h5><%= truncate(idea.title, length: 65) %></h5>
                               <% full_name = Profile.find(idea.profile_id).first_name + " " + Profile.find(idea.profile_id).last_name %>
                               <p class="blog2-thumbnail-name">By <%= link_to full_name, profile_path(Profile.find(idea.profile_id)), class: "blog2-thumbnail-name", style: "text-decoration: none" %></p>

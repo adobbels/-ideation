@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="card-bottom">
                                     <p><i></i><%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>
-                                    <span>business line</span>
+                                    <span><%= idea.line %></span>
                                 </div>
                             </div>
                           </div>
