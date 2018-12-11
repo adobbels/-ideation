@@ -15,7 +15,7 @@
                             </div>
                         </figure>
                         <div class="blog-content">
-                            <p class="text-muted">By: <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%> / 4 Comments</p>
+                            <p class="text-muted">By: <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%> / <%= @idea.reviews.count %> Reviews</p>
                             <div class="blog-text">
                                 <h5> <%= @idea.title %> <span style="color: #73cf42 !important; font-weight: lighter; font-size: 13px"><%= @idea.line %></span></h5>
 
@@ -131,7 +131,7 @@
                               </div>
                             <% end  %>
                         </div>
-                        <div class="widget-box">
+<!--                         <div class="widget-box">
                             <h4>Categories</h4>
                             <div class="categories">
                                 <a href="#">Retail Banking<span class="ti-angle-right"></span></a>
@@ -142,7 +142,7 @@
                                 <a href="#">Market<span class="ti-angle-right"></span></a>
                                 <a href="#">Product<span class="ti-angle-right"></span></a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 <!-- ####################   sidepart   #################### -->
