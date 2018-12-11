@@ -34,6 +34,7 @@ skip_before_action :authenticate_user!
     @profile = current_user.profile
     @idea = Idea.new(idea_params)
     @idea.profile = @profile
+    @idea.status = "Under Review"
 
     if @idea.save
      redirect_to idea_path(@idea)
@@ -65,7 +66,7 @@ skip_before_action :authenticate_user!
 private
 
 def idea_params
-  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line)
+  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line, :status)
 end
 
 

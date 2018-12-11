@@ -54,8 +54,10 @@
                                         <li><%= avg.round(1) %></li>
                                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
                                         <li><%= idea.reviews.count %> ratings</li>
+                                        <li><i class="fa fa-circle" aria-hidden="true"></i></li>
+                                        <li><%= idea.status %></li>
                                     </ul>
-                                    <p class="card-text"> <%= truncate(idea.business_case, length: 100)%> </p>
+                                    <p class="card-text"> <%= truncate(idea.business_case, length: 40)%> </p>
                                 </div>
                                 <div class="card-bottom">
                                     <p><i></i><%= Profile.find(idea.profile_id).first_name %> <%= Profile.find(idea.profile_id).last_name %></p>

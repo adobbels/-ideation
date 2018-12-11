@@ -12,6 +12,6 @@ ActiveAdmin.register Idea do
 #   permitted
 # end
 
-permit_params :title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line
+permit_params :title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line, :status
 
 end
