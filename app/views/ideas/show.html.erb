@@ -11,11 +11,11 @@
                         <figure class="img-holder">
                             <a href="#"><img src="/assets/blog-detail-img.jpg" class="img-fluid" alt="#"></a>
                             <div class="blog-post-date">
-                                <%= @idea.created_at.strftime('%b %d, %Y') %>
+                                <%= "Pending" %>
                             </div>
                         </figure>
                         <div class="blog-content">
-                            <p class="text-muted">By: <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%> / <%= @idea.reviews.count %> Reviews</p>
+                            <p class="text-muted">By <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%>, <%= @idea.created_at.strftime('%b %d, %Y') %> / <%= @idea.reviews.count %> Reviews</p>
                             <div class="blog-text">
                                 <h5> <%= @idea.title %> <span style="color: #73cf42 !important; font-weight: lighter; font-size: 13px"><%= @idea.line %></span></h5>
 
@@ -125,7 +125,7 @@
                                       <div class="blog-thumb-content">
                                           <p><strong><%= truncate(idea.title, length: 75) %></strong></p>
                                           <p><%= link_to "By #{Profile.find(idea.profile_id).first_name} #{Profile.find(idea.profile_id).last_name}", profile_path(Profile.find(idea.profile_id)), style: "text-decoration: none; color: #adadad"%></p>
-                                          <p> <%= idea.created_at.strftime('%b %d, %Y') %> | Business Line </p>
+                                          <p> <%= idea.created_at.strftime('%b %d, %Y') %> | <%= idea.line %> </p>
                                       </div>
                                   </a>
                               </div>
