@@ -65,7 +65,7 @@ skip_before_action :authenticate_user!
 private
 
 def idea_params
-  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue)
+  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line)
 end
 
 

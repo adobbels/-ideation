@@ -17,7 +17,8 @@
                         <div class="blog-content">
                             <p class="text-muted">By: <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%> / 4 Comments</p>
                             <div class="blog-text">
-                                <h5> <%= @idea.title %> </h5>
+                                <h5> <%= @idea.title %> <span style="color: #73cf42 !important; font-weight: lighter; font-size: 13px"><%= @idea.line %></span></h5>
+
                                 <h6>Business Case</h6>
                                 <p style="font-weight: 200;"><%= @idea.business_case %></p>
                                 <h6>Value Proposition</h6>
@@ -89,11 +90,13 @@
                                             <div class="customer-content">
                                                 <div class="customer-review">
                                                     <h5><%= review.title %></h5>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span class="round-icon-blank"></span>
+                                                    <% review.rating.times do %>
+                                                      <span></span>
+                                                    <% end %>
+                                                    <% a = 5 - review.rating  %>
+                                                    <% a.times do  %>
+                                                      <span class="round-icon-blank"></span>
+                                                    <% end  %>
                                                     <p>Reviewed 2 days ago</p>
                                                 </div>
                                                 <div class="customer-rating"><%= '%.1f' % review.rating %></div>

@@ -28,26 +28,17 @@
 
 <%= simple_form_for @idea do |f| %>
 
-<!--                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Business Line 🏢</label>
-                                        <select class="form-control add-listing_form">
-                                          <option>Retail Banking</option>
-                                          <option>Private Banking</option>
-                                          <option>Compliance</option>
-                                          <option>legal</option>
-                                          <option>Finance</option>
-                                          <option>Market</option>
-                                          <option>Product</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <%= f.input :title , label: 'Title', class: "form-control add-listing_form ",  placeholder: "This will be the first line people will see." %>
+                                        <%= f.input :line , label: 'Business Line 🏢', collection: [["Retail Banking"], ["Private Banking"], ['Compliance'], ['Legal'], ['Finance'], ['Market'], ['Product']], selected: ['Retail Banking'], class: "form-control add-listing_form " %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.input :title , label: 'Idea Title', class: "form-control add-listing_form ",  placeholder: "This will be the first line people will see." %>
                                     </div>
                                 </div>
                             </div>
