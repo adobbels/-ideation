@@ -1,5 +1,8 @@
 <% profile = Profile.find(@idea.profile_id) %>
-
+<% if profile == current_user.profile  %>
+<% edit = true %>
+<% end %>
+<%= edit %>
 
 
     <!--============================= BLOG DETAIL =============================-->
@@ -11,11 +14,17 @@
                         <figure class="img-holder">
                             <a href="#"><img src="/assets/blog-detail-img.jpg" class="img-fluid" alt="#"></a>
                             <div class="blog-post-date">
-                                <%= @idea.status %>
+                              <%= @idea.status %>
                             </div>
+                            <% if edit %>
+                              <div class="blog-post-date" style="left: 175px">
+                                <%= link_to "Edit My Idea", edit_idea_path(@idea), style: "color: #fff; text-decoration: none" %>
+                              </div>
+                            <% end %>
                         </figure>
                         <div class="blog-content">
                             <p class="text-muted">By <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%>, <%= @idea.created_at.strftime('%b %d, %Y') %> / <%= @idea.reviews.count %> Reviews</p>
+
                             <div class="blog-text">
                                 <h5> <%= @idea.title %> <span style="color: #73cf42 !important; font-weight: lighter; font-size: 13px"><%= @idea.line %></span></h5>
 
