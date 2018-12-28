@@ -3,11 +3,7 @@ class IdeasController < ApplicationController
 skip_before_action :authenticate_user!
 
   def index
-
-
     @ideas = Idea.all
-
-
   end
 
   def show
@@ -51,6 +47,7 @@ skip_before_action :authenticate_user!
   end
 
   def update
+    @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
       redirect_to idea_path(@idea)
     else
@@ -66,7 +63,7 @@ skip_before_action :authenticate_user!
 private
 
 def idea_params
-  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :line, :status)
+  params.require(:idea).permit(:title, :business_case, :value_prop, :target_market, :problem, :solution, :revenue, :status, :line)
 end
 
 
