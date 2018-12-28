@@ -5,7 +5,7 @@
                 <div class="col-md-10">
                     <div class="titile-block title-block_subpage">
                         <h2>All The Awesome Ideas</h2>
-                        <p><a href="/"> Home</a> / Blog</p>
+                        <p><a href="/"> Home</a> / Ideas</p>
                     </div>
                 </div>
             </div>
@@ -16,12 +16,12 @@
     <section class="main-block">
         <div class="container-fluid">
             <div class="row blog2-block">
-                <% @ideas.each do |idea| %>
+                <% @ideas.sort.reverse.each do |idea| %>
                   <div class="col-md-6 col-lg-3 article-first">
                       <div class="news-block">
                           <img src="/assets/article-img1.jpg" alt="#" class="img-fluid">
                           <div class="news-title">
-                              <p> <%= idea.created_at.strftime('%b %d, %Y') %> • <%= idea.line %> • <%= idea.status %></p>
+                              <p> <%= idea.created_at.strftime('%b %d, %Y') %> • <%= idea.line %> <br> <%= idea.status %></p>
                               <h5><%= truncate(idea.title, length: 65) %></h5>
                               <% full_name = Profile.find(idea.profile_id).first_name + " " + Profile.find(idea.profile_id).last_name %>
                               <p class="blog2-thumbnail-name">By <%= link_to full_name, profile_path(Profile.find(idea.profile_id)), class: "blog2-thumbnail-name", style: "text-decoration: none" %></p>

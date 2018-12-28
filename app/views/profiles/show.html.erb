@@ -49,7 +49,7 @@
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="/assets/listing-thumb-3.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
-                                    <h5><%= link_to idea.title, idea_path(idea), class: 'card-title', style: "color: #3e434b; text-decoration: none" %></h5>
+                                    <h5><%= link_to truncate(idea.title, length:50), idea_path(idea), class: 'card-title', style: "color: #3e434b; text-decoration: none" %></h5>
                                     <ul class="card-rating">
                                         <li><%= avg.round(1) %></li>
                                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
