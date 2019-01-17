@@ -86,7 +86,7 @@
                                     <div class="customer-review_wrap">
                                         <div class="customer-img">
                                             <img src="/assets/customer-img1.jpg" class="img-fluid" alt="#">
-                                            <p><%= link_to "#{Profile.find(review.profile_id).first_name} #{Profile.find(review.profile_id).last_name}", profile_path(Profile.find(review.profile_id)), style: "color: #3e434b; text-decoration: none"%></p>
+                                            <p><%= link_to "#{Profile.find(review.profile_id).first_name}", profile_path(Profile.find(review.profile_id)), style: "color: #3e434b; text-decoration: none"%></p>
                                             <span><%= Review.all.where(profile_id: review.profile_id).count %> Reviews</span>
                                         </div>
                                         <div class="customer-content-wrap">

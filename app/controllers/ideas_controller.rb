@@ -30,7 +30,7 @@ skip_before_action :authenticate_user!
     @profile = current_user.profile
     @idea = Idea.new(idea_params)
     @idea.profile = @profile
-    @idea.status = "Under Review"
+    @idea.status = "Under Review ⏳"
 
     if @idea.save
      redirect_to idea_path(@idea)
