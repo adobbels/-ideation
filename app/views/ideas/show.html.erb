@@ -56,6 +56,7 @@
                               <%= simple_form_for [@idea, @review] do |f| %> <!-- </form> -->
                                   <div class="customer-content-wrap">
                                       <div class="your-comment-wrap" style= "margin-top: 15px;">
+                                        <p style="color: #ff6b6b">Please login before posting a review</p>
                                         <%= f.input :title , label: false, include_blank: false, required: true, class: "form-control comment-text", placeholder: "Enter Your Title" %>
                                       </div>
                                       <div class="your-comment-wrap" style= "margin-top: 15px;">
