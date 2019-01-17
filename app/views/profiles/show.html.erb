@@ -72,8 +72,8 @@
                     <div class="follow" style="margin-bottom: 15px; padding-bottom: 1px;">
                         <div class="follow-img">
                             <img src="/assets/follow-img.jpg" class="img-fluid" alt="#">
-                            <h6><%= @profile.first_name %> <%= @profile.last_name %> </h6>
-                            <span><%= @profile.user.email %></span>
+                            <h6><%= @profile.first_name %></h6>
+                           <!--  <span><%= @profile.user.email %></span> -->
                             <% if @ideas == [] %>
                               <p>No idea posted yet 😲</p>
                             <% end  %>
@@ -91,7 +91,7 @@
                         <% if myprofile  %>
                           <p><%= link_to 'EDIT MY PROFILE', edit_profile_path(@profile), class: 'btn btn-outline-danger btn-contact'%></p>
                         <% else  %>
-                          <p><%= link_to 'SEND A MESSAGE', edit_profile_path(@profile), class: 'btn btn-outline-danger btn-contact'%></p>
+                          <!-- <p><%= link_to 'SEND A MESSAGE', edit_profile_path(@profile), class: 'btn btn-outline-danger btn-contact'%></p> -->
                         <% end  %>
                     </div>
                 </div>
